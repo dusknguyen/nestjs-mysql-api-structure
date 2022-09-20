@@ -37,6 +37,7 @@ export class UtilService {
 
   public removeUndefined<T>(argv: T): Record<string, unknown> {
     // https://stackoverflow.com/questions/25421233
+    // @ts-ignore
     return Object.fromEntries(Object.entries(argv).filter(([, value]: [string, unknown]) => value !== undefined));
   }
 

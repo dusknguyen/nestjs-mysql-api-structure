@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/require-await */
-import { Resolver, Query } from 'type-graphql';
 
+
+import {Query, Resolver} from '@nestjs/graphql';
 import { CountryModel } from '../model';
 import { CountryService } from '../providers';
 
