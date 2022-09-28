@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 
 import { User } from '../../../../entity';
-import { ConfigService } from '../../providers';
+import { ConfigService } from '../../services';
 import { JwtPayload, JwtSign, Payload } from '../auth.payload';
 
 @Injectable()

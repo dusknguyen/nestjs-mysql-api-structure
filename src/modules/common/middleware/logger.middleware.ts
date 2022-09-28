@@ -2,7 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { nanoid } from 'nanoid';
 
-import { LoggerCustom } from '../providers';
+import { LoggerCustom } from '../services';
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {

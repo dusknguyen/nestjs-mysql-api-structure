@@ -4,7 +4,7 @@ import { Message } from 'src/entity';
 
 import { CommonModule } from '../common';
 import { MessageGateway } from './gateway';
-import { MessageService } from './providers';
+import { MessageService } from './services';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Message]), CommonModule],

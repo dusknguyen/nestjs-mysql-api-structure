@@ -9,7 +9,7 @@ import { CommonModule } from '../common';
 import { AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy } from '../common/authentication';
 import { CacheManager } from '../share';
 import { AuthController } from './controllers';
-import { AuthService } from './providers';
+import { AuthService } from './services';
 
 @Module({
   imports: [

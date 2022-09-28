@@ -5,7 +5,7 @@ import { JwtAuthenticationGuard, Payload } from 'src/modules/common/authenticati
 import { NormalResponse } from 'src/modules/share';
 
 import { LoginDto } from '../dtos';
-import { AuthService } from '../providers';
+import { AuthService } from '../services';
 
 /**
  * https://docs.nestjs.com/techniques/authentication

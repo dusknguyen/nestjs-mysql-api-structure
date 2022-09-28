@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 
-import * as providers from './providers';
+import * as providers from './services';
 
 @Global()
 @Module({

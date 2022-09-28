@@ -3,7 +3,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User, ConfigEntity, Country, Roles } from 'src/entity';
 
-import { InitService } from './providers';
+import { InitService } from './services';
 
 @Module({
   imports: [ScheduleModule.forRoot(), TypeOrmModule.forFeature([User, ConfigEntity, Country, Roles])],

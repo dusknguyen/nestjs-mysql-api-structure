@@ -3,7 +3,7 @@
 
 import { Query, Resolver } from '@nestjs/graphql';
 import { CountryModel } from '../model';
-import { CountryService } from '../providers';
+import { CountryService } from '../services';
 
 @Resolver(() => CountryModel)
 export class CountryResolver {

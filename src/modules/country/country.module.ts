@@ -5,7 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Country } from 'src/entity';
 
-import { CountryService } from './providers';
+import { CountryService } from './services';
 import { CountryResolver } from './resolver';
 
 /**
