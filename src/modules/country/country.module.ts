@@ -5,8 +5,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Country } from 'src/entity';
 
-import { CountryService } from './services';
 import { CountryResolver } from './resolver';
+import { CountryService } from './services';
 
 /**
  * https://docs.nestjs.com/graphql/quick-start
@@ -15,6 +15,7 @@ import { CountryResolver } from './resolver';
   imports: [
     GraphQLModule.forRootAsync({
       driver: ApolloDriver,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       useFactory: async (config: ConfigService) => ({
         ...(await config.get('graphql')),
       }),

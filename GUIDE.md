@@ -2,21 +2,21 @@
 
 - How fe call to server:
 
-  - [Rest APIs](#rest-apis)
-  - [GraphQL](#GraphQL)
-  - [Socket.io](#socketio)
+    - [Rest APIs](#rest-apis)
+    - [GraphQL](#GraphQL)
+    - [Socket.io](#socketio)
 
 - How to use:
 
-  - [Requirement](#requirement)
-  - [Run API application](#run-api-application)
-    - [1. Create a `.env` file](#1-create-a-env-file)
-    - [2. Edit env config](#2-edit-env-config)
-    - [3. Install dependencies](#3-install-dependencies)
-    - [4. Run](#4-run)
-    - [5. Another command line](#1-create-a-env-file)
-  - [Docker](#docker)
-  - [Fe demo](#fe-demo)
+    - [Requirement](#requirement)
+    - [Run API application](#run-api-application)
+        - [1. Create a `.env` file](#1-create-a-env-file)
+        - [2. Edit env config](#2-edit-env-config)
+        - [3. Install dependencies](#3-install-dependencies)
+        - [4. Run](#4-run)
+        - [5. Another command line](#1-create-a-env-file)
+    - [Docker](#docker)
+    - [Fe demo](#fe-demo)
 
 ### Rest APIs
 

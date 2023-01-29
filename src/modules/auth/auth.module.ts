@@ -5,11 +5,11 @@ import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as entities from 'src/entity';
 
+import { AuthController } from './controllers';
+import { AuthService } from './services';
 import { CommonModule } from '../common';
 import { AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy } from '../common/authentication';
 import { CacheManager } from '../share';
-import { AuthController } from './controllers';
-import { AuthService } from './services';
 
 @Module({
   imports: [

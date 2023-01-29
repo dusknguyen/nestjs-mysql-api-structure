@@ -6,7 +6,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as redisStore from 'cache-manager-redis-store';
 import { RedisClientOptions } from 'redis';
 
 import { configuration } from './config';
@@ -33,7 +32,6 @@ import { MessageModule } from './modules/message';
     }),
     CacheModule.register<RedisClientOptions>({
       isGlobal: true,
-      store: redisStore,
       url: `redis://${process.env['REDIS_HOST'] || 'localhost'}:${Number(process.env['REDIS_PORT'] || '6379')}`,
     }),
     TypeOrmModule.forRootAsync({
