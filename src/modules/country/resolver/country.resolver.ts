@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 
 import { Query, Resolver } from '@nestjs/graphql';
+
 import { CountryModel } from '../model';
 import { CountryService } from '../services';
 
