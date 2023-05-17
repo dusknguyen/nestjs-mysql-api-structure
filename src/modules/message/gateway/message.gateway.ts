@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import { WebSocketGateway, WebSocketServer, SubscribeMessage, MessageBody } from '@nestjs/websockets';
-import { Server } from 'typeorm';
+import { Server } from 'socket.io';
 
 @WebSocketGateway({
   cors: {
@@ -14,6 +14,7 @@ export class MessageGateway {
 
   @SubscribeMessage('message')
   async sendChat(@MessageBody() content: any): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.server.emit('message', content);
   }
 }
