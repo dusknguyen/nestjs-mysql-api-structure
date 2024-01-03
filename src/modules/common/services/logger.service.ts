@@ -11,7 +11,10 @@ import { RequestContext } from './request-context.service';
 export class LoggerCustom extends Logger {
   private isProduction: boolean = process.env.NODE_ENV === 'production';
 
-  constructor(private req: RequestContext, context: string) {
+  constructor(
+    private req: RequestContext,
+    context: string,
+  ) {
     super(context);
   }
 

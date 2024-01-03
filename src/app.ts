@@ -2,6 +2,7 @@
 import { ValidationPipe, BadGatewayException } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationError } from 'class-validator';
 import { WinstonModule } from 'nest-winston';
 import winston from 'winston';
@@ -53,6 +54,15 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix(`api/v${process.env['VERSON'] || '1'}`);
   if (isProduction) {
     app.enable('trust proxy');
+  } else {
+    const options = new DocumentBuilder()
+      .setTitle('OpenAPI Documentation')
+      .setDescription('The sample API description')
+      .setVersion('1.0')
+      .addBearerAuth()
+      .build();
+    const document = SwaggerModule.createDocument(app, options);
+    SwaggerModule.setup('api', app, document);
   }
   // Redis Adapter
   const redisIoAdapter = new RedisIoAdapter(app);

@@ -97,7 +97,6 @@
       }
     ],
     "no-dupe-class-members": "off",
-    "no-duplicate-imports": "off",
     "no-loop-func": "off",
     "no-return-await": "off",
     "no-unused-expressions": "off",
@@ -194,7 +193,6 @@
       }
     ],
     "@typescript-eslint/no-dupe-class-members": "error",
-    "@typescript-eslint/no-duplicate-imports": "error",
     "@typescript-eslint/no-floating-promises": [
       "error",
       {
@@ -224,10 +222,6 @@
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unused-expressions": "error",
-    "@typescript-eslint/object-curly-spacing": [
-      "error",
-      "always"
-    ],
     "@typescript-eslint/prefer-includes": "off",
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/promise-function-async": "error",
@@ -248,7 +242,9 @@
         "ignoreStatic": true
       }
     ],
-    "sonarjs/no-duplicate-string": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-duplicate-imports": "off",
+    "@typescript-eslint/object-curly-spacing" : "off",
     "prettier/prettier": [
       "error"
     ]

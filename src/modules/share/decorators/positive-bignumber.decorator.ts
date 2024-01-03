@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import BigNumber from 'bignumber.js';
 import { registerDecorator, ValidationOptions } from 'class-validator';
 

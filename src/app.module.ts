@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-
 import { BullModule } from '@nestjs/bull';
-import { Module, CacheModule, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { ServeStaticModule } from '@nestjs/serve-static';

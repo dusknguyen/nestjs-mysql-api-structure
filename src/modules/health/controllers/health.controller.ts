@@ -16,7 +16,11 @@ import { Public } from 'src/modules/common/decorators';
 @ApiTags('health')
 @Controller('health')
 export class HealthController {
-  constructor(private health: HealthCheckService, private http: HttpHealthIndicator, private db: TypeOrmHealthIndicator) {}
+  constructor(
+    private health: HealthCheckService,
+    private http: HttpHealthIndicator,
+    private db: TypeOrmHealthIndicator,
+  ) {}
 
   @Public()
   @Get('health')

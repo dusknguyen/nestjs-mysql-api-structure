@@ -2,8 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable no-console */
 import { WebSocketGateway, OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect, WebSocketServer } from '@nestjs/websockets';
-import { Socket } from 'socket.io';
-import { Server } from 'typeorm';
+import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway({
   cors: {

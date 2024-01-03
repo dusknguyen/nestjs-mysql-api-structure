@@ -14,7 +14,10 @@ import { AuthService } from '../services';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private auth: AuthService, private util: UtilService) {}
+  constructor(
+    private auth: AuthService,
+    private util: UtilService,
+  ) {}
 
   /**
    * See test/e2e/jwt-authentication.spec.ts

@@ -8,7 +8,10 @@ import { LoginDto } from '../dtos';
 
 @Injectable()
 export class AuthService {
-  constructor(private util: UtilService, private authenticationService: AuthenticationService) {}
+  constructor(
+    private util: UtilService,
+    private authenticationService: AuthenticationService,
+  ) {}
 
   /**
    * See test/e2e/jwt-authentication.spec.ts
