@@ -1,24 +1,28 @@
 export const config = {
   db: {
     type: process.env.DB_TYPE || 'mysql',
-    synchronize: false,
-    logging: false,
-    host: process.env.DB_HOST || 'masterHost',
+    // https://typeorm.io/#/connection-options/common-connection-options
+    synchronize: true,
+    host: process.env.DB_HOST || '127.0.0.1',
     port: process.env.DB_PORT || 3306,
     username: process.env.DB_USER || 'username',
-    password: process.env.DB_PASSWORD || 'password',
+    password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'dbname',
     extra: {
-      connectionLimit: 30,
+      connectionLimit: 10,
     },
     autoLoadEntities: true,
-  },
-  redis: {
-    url: process.env['REDIS_URL'] || 'redis://localhost:6379',
+    migrationsRun: true,
+    entities: [`${__dirname}/../entity/**/*.{js,ts}`],
+    migrations: [`${__dirname}/../migration/**/*.{js,ts}`],
+    migrationsTableName: 'migrations_typeorm',
+    cli: {
+      migrationsDir: 'migrations',
+    },
   },
   graphql: {
-    debug: false,
-    playground: false,
+    debug: true,
+    playground: true,
   },
-  foo: 'pro-bar',
+  foo: 'dev-bar',
 };

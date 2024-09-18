@@ -1,12 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 
 import { BullModule } from '@nestjs/bull';
-import { Module, CacheModule, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as redisStore from 'cache-manager-redis-store';
 import { RedisClientOptions } from 'redis';
 
 import { configuration } from './config';
@@ -33,8 +34,9 @@ import { MessageModule } from './modules/message';
     }),
     CacheModule.register<RedisClientOptions>({
       isGlobal: true,
-      store: redisStore,
       url: `redis://${process.env['REDIS_HOST'] || 'localhost'}:${Number(process.env['REDIS_PORT'] || '6379')}`,
+      ttl: 10, // seconds
+      max: 100, // maximum number of items in cache
     }),
     TypeOrmModule.forRootAsync({
       useFactory: (config: ConfigService) => ({
