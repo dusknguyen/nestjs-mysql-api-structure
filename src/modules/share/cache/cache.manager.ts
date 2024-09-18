@@ -1,16 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+/* eslint-disable import/no-extraneous-dependencies */
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 
 @Injectable()
-export class CacheManager {
-  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+export class CacheService {
+  constructor(@Inject(CACHE_MANAGER) private readonly cacheManager: Cache) {}
 
-  public async addToCache(key: string, item: any): Promise<void> {
+  public async addToCache<T>(key: string, item: T): Promise<void> {
     await this.cacheManager.set(key, item);
   }
 
-  public async getFromCache(key: string): Promise<any> {
-    return this.cacheManager.get(key);
+  public async getFromCache<T>(key: string): Promise<T | undefined> {
+    return this.cacheManager.get<T>(key);
   }
 }

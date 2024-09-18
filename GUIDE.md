@@ -160,7 +160,7 @@ npm run doc:api
 - Docker command to create develop database and redis
 
 ```shell
-docker-compose -f docker-compose.dev.yaml -f docker-compose.dev.yaml up -d
+docker compose -f docker-compose.dev.yaml -f docker-compose.dev.yaml up -d
 ```
 
 - Production Docker File (for develop server that use docker):

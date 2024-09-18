@@ -6,10 +6,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as entities from 'src/entity';
 
 import { CommonModule } from '../common';
-import { AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy } from '../common/authentication';
-import { CacheManager } from '../share';
 import { AuthController } from './controllers';
 import { AuthService } from './services';
+import { AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy } from '../common/authentication';
+import { CacheService } from '../share';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { AuthService } from './services';
     CommonModule,
     PassportModule,
   ],
-  providers: [AuthService, AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy, CacheManager],
+  providers: [AuthService, AuthenticationSerializer, AuthenticationService, LocalStrategy, JwtStrategy, JwtVerifyStrategy, CacheService],
   controllers: [AuthController],
 })
 export class AuthModule {}

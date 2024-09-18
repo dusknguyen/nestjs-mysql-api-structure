@@ -10,7 +10,11 @@ import { JwtPayload, JwtSign, Payload } from '../auth.payload';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private jwt: JwtService, private config: ConfigService, @InjectRepository(User) private userRepository: Repository<User>) {}
+  constructor(
+    private jwt: JwtService,
+    private configService: ConfigService,
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {}
 
   public async validateUser(username: string, password: string): Promise<User | null> {
     const user = await this.userRepository.findOneBy({ name: username });
@@ -24,7 +28,7 @@ export class AuthenticationService {
   }
 
   public validateRefreshToken(data: Payload, refreshToken: string): boolean {
-    if (!this.jwt.verify(refreshToken, { secret: this.config.get('jwtSecret') })) {
+    if (!this.jwt.verify(refreshToken, { secret: this.configService.get('jwtSecret') })) {
       return false;
     }
     const payload = <{ sub: string }>this.jwt.decode(refreshToken);
@@ -47,7 +51,7 @@ export class AuthenticationService {
     return this.jwt.sign(
       { sub },
       {
-        secret: this.config.get('jwtSecret'),
+        secret: this.configService.get('jwtSecret'),
         expiresIn: '7d', // Set greater than the expiresIn of the access_token
       },
     );
