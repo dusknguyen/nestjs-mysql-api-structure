@@ -15,8 +15,25 @@ const util = {
     return { ...target, ...source };
   },
 };
+
 export const configuration = async (): Promise<Config> => {
   const { config } = await import('./envs/default');
-  const { config: environment } = <{ config: Production }>await import(`./envs/${process.env.NODE_ENV || 'development'}`);
-  return util.merge(config, environment);
+
+  let environmentConfig: Production;
+
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      environmentConfig = (await import('./envs/production')).config;
+      break;
+    case 'development':
+      environmentConfig = (await import('./envs/development')).config;
+      break;
+    case 'test':
+      environmentConfig = (await import('./envs/test')).config;
+      break;
+    default:
+      throw new Error(`Unknown environment: ${process.env.NODE_ENV}`);
+  }
+
+  return util.merge(config, environmentConfig);
 };

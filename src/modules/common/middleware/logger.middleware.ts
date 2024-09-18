@@ -7,9 +7,7 @@ import { LoggerCustom } from '../services';
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
   private passUrl: string[] = ['/health', '/graphql'];
-  // https://docs.nestjs.com/graphql/plugins
-  // https://www.apollographql.com/docs/apollo-server/integrations/plugins/
-  // https://github.com/nestjs/graphql/issues/923
+
   constructor(private readonly logger: LoggerCustom) {}
 
   public use(req: Request, res: Response, next: () => void): void {
@@ -18,8 +16,12 @@ export class LoggerMiddleware implements NestMiddleware {
     }
     req.id = req.header('X-Request-Id') || nanoid();
     res.setHeader('X-Request-Id', req.id);
+
+    // Provide a fallback value if req.ip is undefined
+    const ip = req.ip ?? 'unknown-ip';
     const user = req.user?.userId || '';
-    this.logger.log(`${req.method} ${req.originalUrl} - ${req.ip.replace('::fff:', '')} ${user}`);
+
+    this.logger.log(`${req.method} ${req.originalUrl} - ${ip.replace('::fff:', '')} ${user}`);
     return next();
   }
 }

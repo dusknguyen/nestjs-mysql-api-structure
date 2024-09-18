@@ -31,13 +31,12 @@ export class UtilService {
     return this.template(templateData, param, ' ');
   }
 
-  public isKeyOfSchema<T>(key: unknown, schema: T): key is keyof T {
+  public isKeyOfSchema<T extends Record<string, unknown>>(key: unknown, schema: T): key is keyof T {
     return typeof key === 'string' && key in schema;
   }
 
-  public removeUndefined<T>(argv: T): Record<string, unknown> {
+  public removeUndefined<T extends Record<string, unknown>>(argv: T): Record<string, unknown> {
     // https://stackoverflow.com/questions/25421233
-    // @ts-ignore
     return Object.fromEntries(Object.entries(argv).filter(([, value]: [string, unknown]) => value !== undefined));
   }
 
