@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { hash } from 'bcryptjs';
 import * as crypto from 'crypto';
 import { ADMIN_ROLES } from 'src/constants';
-import { ConfigEntity, Country, Roles, User } from 'src/entity';
+import { ConfigEntity, Country, Roles, User } from 'src/entities';
 import { Repository } from 'typeorm';
 
 @Injectable()

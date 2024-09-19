@@ -1,4 +1,4 @@
-import { Roles } from '../../../entity';
+import { Roles } from '../../../entities';
 
 export interface JwtSign {
   access_token: string;

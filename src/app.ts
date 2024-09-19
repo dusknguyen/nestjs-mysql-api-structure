@@ -81,8 +81,8 @@ async function bootstrap(): Promise<void> {
   middleware(app);
   /** Swagger configuration*/
   const options = new DocumentBuilder()
-    .setTitle('LegendDao API')
-    .setDescription('LegendDao API')
+    .setTitle('OpenAPI Documentation')
+    .setDescription('The sample API description')
     .setVersion('1.0')
     .addBearerAuth()
     .addBasicAuth()

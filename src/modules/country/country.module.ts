@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Country } from 'src/entity';
+import { Country } from 'src/entities';
 
 import { CountryService } from './services';
 import { CountryResolver } from './resolver';

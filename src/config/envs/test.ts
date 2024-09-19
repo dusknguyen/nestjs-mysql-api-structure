@@ -13,8 +13,9 @@ export const config = {
     },
     autoLoadEntities: true,
     migrationsRun: true,
-    entities: [`${__dirname}/../entity/**/*.{js,ts}`],
-    migrations: [`${__dirname}/../migration/**/*.{js,ts}`],
+    entities: [`${__dirname}/../entities/**/*.{js,ts}`],
+    migrations: [`${__dirname}/../migrations/**/*.{js,ts}`],
+    subscribes: [],
     migrationsTableName: 'migrations_typeorm',
     cli: {
       migrationsDir: 'migrations',
